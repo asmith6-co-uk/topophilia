@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topophilia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --cream: #f5f0e8;
+    --ink: #1a1714;
+    --muted: #7a7268;
+    --rule: rgba(26, 23, 20, 0.15);
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(180, 160, 120, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(140, 120, 90, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wordmark {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  }
+
+  .rule {
+    width: 1px;
+    height: 3rem;
+    background: var(--rule);
+    margin: 0 auto 3.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  }
+
+  .rule.lower {
+    margin: 3.5rem auto 0;
+    animation-delay: 0.9s;
+  }
+
+  blockquote {
+    opacity: 0;
+    animation: fadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  .tuan-quote {
+    font-size: clamp(1.55rem, 3.5vw, 2rem);
+    font-weight: 300;
+    line-height: 1.55;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .tuan-quote::before {
+    content: '\201C';
+    font-size: 1.2em;
+    line-height: 0;
+    vertical-align: -0.2em;
+    margin-right: 0.05em;
+    color: var(--muted);
+  }
+
+  .tuan-quote::after {
+    content: '\201D';
+    font-size: 1.2em;
+    line-height: 0;
+    vertical-align: -0.2em;
+    margin-left: 0.05em;
+    color: var(--muted);
+  }
+
+  .attribution {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.6rem, 1.3vw, 0.7rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1.5rem;
+    display: block;
+  }
+
+  .plain-quote {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background: var(--rule);
+    border-radius: 50%;
+    margin: 0 0.6em;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 2.5rem 1.5rem;
+      justify-content: center;
+    }
+
+    .rule {
+      margin-bottom: 2.5rem;
+    }
+
+    .rule.lower {
+      margin-top: 2.5rem;
+    }
+
+    .plain-quote {
+      margin-top: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <p class="wordmark">topophilia</p>
+
+  <div class="container">
+
+    <div class="rule"></div>
+
+    <blockquote>
+      <p class="tuan-quote">What begins as undifferentiated space becomes place as we get to know it better and endow it with value.</p>
+      <span class="attribution">Yi-Fu Tuan <span class="dot"></span> Space and Place, 1977</span>
+    </blockquote>
+
+    <p class="plain-quote">A place is just space, until it fills with memory.</p>
+
+    <div class="rule lower"></div>
+
+  </div>
+
+</body>
+</html>
